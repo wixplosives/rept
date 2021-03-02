@@ -28,56 +28,16 @@ const { argv } = yargs
     alias: "s",
     default: "",
   })
-  .option("templateProcessor", {
-    type: "string",
-    description: "request for custom template processor",
-    alias: "t",
-    default: "",
-  })
-  .option("inputProcessor", {
-    type: "string",
-    description: "request for custom user input processor",
-    alias: "i",
-    default: "",
+  .option("reptFile", {
+    type: "boolean",
+    description: "should get template params from rept.config",
+    default: true,
   })
   .help()
   .alias("h", "help")
   .strict();
 
-run().catch((e) => {
-  console.error(e);
+repoTpl(argv).catch((e) => {
   process.exitCode = 1;
+  console.error(e);
 });
-
-async function run() {
-  const {
-    destination,
-    repo,
-    subDir,
-    branch,
-    templateProcessor,
-    inputProcessor,
-  } = argv;
-
-  const tpr = templateProcessor
-    ? require(templateProcessor)
-    : () => ({
-        tpl(id) {
-          return id;
-        },
-        filter() {
-          return true;
-        },
-      });
-
-  const ipr = inputProcessor ? require(inputProcessor) : { userInput() {} };
-  const userInput = (await ipr.userInput(argv)) || {};
-
-  repoTpl({
-    outDir: destination,
-    repo: repo,
-    internalPath: subDir,
-    ...tpr(userInput),
-    branch,
-  });
-}
