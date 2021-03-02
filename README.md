@@ -2,6 +2,8 @@
 
 This is a super simple repo base directory templating allow to clone a git repo and process the files when creating new directory content
 
+> This package is still WIP use at your own risk.
+
 ## Usage
 
 `npx rept -r SOME_GIT_REPO -d DEST`
@@ -19,3 +21,4 @@ Options:
                                                        [boolean] [default: true]
   -h, --help         Show help                                         [boolean]
 ```
+
