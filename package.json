@@ -1,0 +1,15 @@
+{
+  "name": "rept",
+  "version": "1.0.0",
+  "description": "Simple repo templating",
+  "main": "./src/rept.js",
+  "bin": {
+    "rept": "./bin/cli.js"
+  },
+  "keywords": [],
+  "author": "Barak Igal",
+  "license": "MIT",
+  "dependencies": {
+    "yargs": "^16.2.0"
+  }
+}
