@@ -11,6 +11,9 @@
     "repo",
     "scaffold"
   ],
+  "engines": {
+    "node": ">=15"
+  },
   "author": "Wix.com",
   "license": "MIT",
   "repository": "https://github.com/wixplosives/rept",
