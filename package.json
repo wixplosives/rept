@@ -1,6 +1,6 @@
 {
   "name": "rept",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple repo templating",
   "main": "./src/rept.js",
   "bin": {
